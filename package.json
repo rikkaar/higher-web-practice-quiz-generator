@@ -2,6 +2,8 @@
 	"name": "higher-web-practice-quiz-generator",
 	"private": true,
 	"version": "0.0.0",
+	"author": "Игорь Рыболовлев",
+	"description": "Генератор тестов с возможностью множественного или одиночного выбора ответа.",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
