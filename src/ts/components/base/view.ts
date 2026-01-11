@@ -1,5 +1,5 @@
-import type {DisableableElement, ElementValue, SelectorElement} from '@/ts/types/dom'
-import {ensureElement, isChildElement, isPlainObject, isSelector} from '@/ts/utils/dom'
+import type {SelectorElement} from '@/ts/types/dom'
+import {ensureElement, isSelector} from '@/ts/utils/dom'
 import type {IView} from '@/ts/types/base'
 
 export abstract class View<T, S extends object = object, E extends HTMLElement = HTMLElement> implements IView<
@@ -18,7 +18,7 @@ export abstract class View<T, S extends object = object, E extends HTMLElement =
 		this.settings = settings
 	}
 
-	render(data?: Partial<T>): E {
+	render(data: Partial<T>): E {
 		if (data && typeof data === 'object') {
 			Object.assign(this, data)
 		}
@@ -40,32 +40,5 @@ export abstract class View<T, S extends object = object, E extends HTMLElement =
 			this.cache[query] = ensureElement(query, root)
 		}
 		return this.cache[query] as T
-	}
-
-	protected setImage(query: SelectorElement<HTMLImageElement>, src: string, alt?: string): void {
-		const el = this.ensure(query)
-		el.src = src
-		el.alt = alt ?? ''
-	}
-
-	protected setDisabled(query: SelectorElement<DisableableElement>, disabled: boolean): void {
-		const el = this.ensure(query)
-		el.disabled = disabled
-	}
-
-	protected toggleClass(query: SelectorElement<HTMLElement>, className: string, force?: boolean): void {
-		const el = this.ensure(query)
-		el.classList.toggle(className, force)
-	}
-
-	protected setValue<T extends HTMLElement>(query: SelectorElement<T>, value: ElementValue<T>): void {
-		const el = this.ensure(query)
-		if (typeof value === 'string') {
-			el.textContent = value
-		} else if (isChildElement(value)) {
-			el.replaceChildren(...(Array.isArray(value) ? value : [value]))
-		} else if (isPlainObject(value)) {
-			Object.assign(el, value)
-		}
 	}
 }

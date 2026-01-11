@@ -88,6 +88,26 @@
 			<div class="footer__inner layout__container">Учебный проект 2025</div>
 		</footer>
 
+		<div
+			class="toast toast--error"
+			id="error-toast"
+			hidden
+		>
+			<div class="toast__icon">❌</div>
+			<div class="toast__content">
+				<p class="toast__title">Ошибка: не удалось обработать JSON.</p>
+				<p class="toast__message text text--caption">Проверьте формат данных и попробуйте снова.</p>
+			</div>
+			<div class="toast__actions">
+				<button
+					type="button"
+					class="button button--secondary toast__action"
+				>
+					Попробовать снова
+				</button>
+			</div>
+		</div>
+
 		<script
 			type="module"
 			src="./ts/pages/main.ts"

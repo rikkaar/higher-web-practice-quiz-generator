@@ -1,4 +1,4 @@
-import type {SelectorCollection, SelectorElement, ElementChild} from '@/ts/types/dom'
+import type {SelectorCollection, SelectorElement} from '@/ts/types/dom'
 
 export function isSelector(x: unknown): x is string {
 	return typeof x === 'string' && x.length > 1
@@ -39,14 +39,4 @@ export function ensureElement<T extends HTMLElement>(selectorElement: SelectorEl
 
 export function cloneTemplateContent<T extends HTMLElement>(template: HTMLTemplateElement): T {
 	return template.content.firstElementChild?.cloneNode(true) as T
-}
-
-export function isPlainObject(obj: unknown): obj is object {
-	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-	const prototype = Object.getPrototypeOf(obj)
-	return prototype === Object.getPrototypeOf({}) || prototype === null
-}
-
-export function isChildElement(x: unknown): x is ElementChild {
-	return x instanceof HTMLElement || Array.isArray(x)
 }

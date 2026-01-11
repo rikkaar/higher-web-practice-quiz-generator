@@ -35,12 +35,14 @@ export class HeaderView extends View<HeaderViewData, HeaderViewSettings> {
 	}
 
 	private open(): void {
-		this.setImage(this.menuIcon, './assets/cross.svg', 'Закрыть меню')
+		this.menuIcon.src = './assets/cross.svg'
+		this.menuIcon.alt = 'Закрыть меню'
 		this.menuContainer.classList.add('header__menu-container--open')
 	}
 
 	private close(): void {
-		this.setImage(this.menuIcon, './assets/burger.svg', 'Открыть меню')
+		this.menuIcon.src = './assets/burger.svg'
+		this.menuIcon.alt = 'Открыть меню'
 		this.menuContainer.classList.remove('header__menu-container--open')
 	}
 }

@@ -7,9 +7,10 @@ class QuizDatabase implements IQuizDatabase {
 	private readonly dbPromise: Promise<IDBPDatabase<QuizDB>>
 
 	constructor() {
+		const storeName = this.storeName
 		this.dbPromise = openDB<QuizDB>('quizzes-db', 1, {
 			upgrade(db) {
-				db.createObjectStore(this.storeName, {keyPath: 'id'})
+				db.createObjectStore(storeName, {keyPath: 'id'})
 			},
 		})
 	}
