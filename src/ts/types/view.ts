@@ -1,5 +1,6 @@
 import type {IEvents} from './base'
 import type {EventsMap} from './event'
+import type {QuizRecord} from './quiz'
 
 export type HeaderViewData = object
 
@@ -24,3 +25,13 @@ export type ToastViewData = {
 }
 
 export type ToastViewSettings = BaseViewSettings
+
+export type QuizzesViewData = {
+	cards: HTMLElement[]
+}
+
+export type QuizzesViewSettings = BaseViewSettings
+
+export type QuizCardViewData = QuizRecord
+
+export type QuizCardViewSettings = BaseViewSettings

@@ -50,14 +50,10 @@
 	overflow-y: auto;
 }
 
-.header__menu-container--open {
-	display: block;
-}
-
 .header__menu-nav {
+	display: flex;
 	height: 100%;
 	width: var(--grid-container-width);
-	display: flex;
 	flex-direction: column;
 	justify-content: end;
 	margin: 0 auto;
@@ -76,6 +72,10 @@
 @media (max-width: 428px) {
 	.header__nav {
 		display: none;
+	}
+
+	.header__menu-container--open {
+		display: block;
 	}
 
 	.header__menu-button {
