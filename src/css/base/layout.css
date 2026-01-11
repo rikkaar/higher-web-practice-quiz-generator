@@ -1,0 +1,15 @@
+.layout {
+	min-height: 100%;
+}
+
+.layout__container {
+	width: var(--grid-container-width);
+	margin: 0 auto;
+}
+
+.layout__grid {
+	display: grid;
+	grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+	column-gap: var(--grid-gutter);
+	row-gap: var(--grid-gutter);
+}

@@ -4,7 +4,7 @@ export function isSelector(x: unknown): x is string {
 	return typeof x === 'string' && x.length > 1
 }
 
-function ensureAllElements<T extends HTMLElement>(
+export function ensureAllElements<T extends HTMLElement>(
 	selectorElement: SelectorCollection<T>,
 	context: HTMLElement = document as unknown as HTMLElement,
 ): T[] {

@@ -17,7 +17,77 @@
 			href="./css/pages/index.css"
 		/>
 	</head>
-	<body>
+	<body class="layout">
+		<header class="header">
+			<div class="header__inner layout__container">
+				<img
+					class="header__logo"
+					src="./assets/logo.svg"
+					alt="Логотип"
+				/>
+				<nav class="header__nav">
+					<a
+						class="button button--secondary"
+						href="./quizzes.html"
+						>Посмотреть сохранённые квизы</a
+					>
+				</nav>
+				<button
+					class="header__menu-button"
+					type="button"
+				>
+					<img
+						class="header__menu-icon"
+						src="./assets/burger.svg"
+						alt="Меню"
+					/>
+				</button>
+			</div>
+			<div class="header__menu-container">
+				<nav class="header__menu-nav">
+					<a
+						class="header__menu-link"
+						href="./quizzes.html"
+						>Сохранённые квизы</a
+					>
+				</nav>
+			</div>
+		</header>
+
+		<main class="main">
+			<div class="main__inner layout__container layout__grid">
+				<section class="generator">
+					<h1 class="generator__title">Генератор квизов</h1>
+					<p class="generator__hint">Вставьте JSON...</p>
+					<form class="generator__form">
+						<label
+							class="generator__label text text--caption"
+							for="quiz-json-input"
+							>Ваш JSON</label
+						>
+						<textarea
+							id="quiz-json-input"
+							name="quiz-json-input"
+							class="generator__textarea text text--mono"
+							placeholder="{&#10;«title»: «Пример теста»,&#10;«questions»: []&#10;}"
+						></textarea>
+						<div class="generator__actions">
+							<button
+								type="submit"
+								class="button button--primary"
+							>
+								Сгенерировать
+							</button>
+						</div>
+					</form>
+				</section>
+			</div>
+		</main>
+
+		<footer class="footer">
+			<div class="footer__inner layout__container">Учебный проект 2025</div>
+		</footer>
+
 		<script
 			type="module"
 			src="./ts/pages/main.ts"

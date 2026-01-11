@@ -1,0 +1,23 @@
+.footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: var(--footer-height);
+	z-index: var(--z-footer);
+	background-color: inherit;
+}
+
+.footer__inner {
+	height: var(--footer-height);
+	display: flex;
+	align-items: start;
+	justify-content: center;
+	color: var(--color-text-secondary);
+}
+
+@media (max-width: 1024px) {
+	.footer {
+		display: none;
+	}
+}

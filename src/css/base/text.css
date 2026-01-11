@@ -1,0 +1,22 @@
+.text {
+	font: inherit;
+	color: inherit;
+}
+
+.text--caption {
+	font-size: var(--text-body-size);
+	line-height: var(--text-body-line);
+	color: var(--color-text-secondary);
+}
+
+.text--mono {
+	font-family: var(--font-mono);
+	font-size: var(--text-mono-size);
+	line-height: var(--text-mono-line);
+}
+
+.text--body-accent {
+	font-size: var(--text-body-accent-size);
+	line-height: var(--text-body-accent-line);
+	font-weight: var(--text-body-accent-weight);
+}
