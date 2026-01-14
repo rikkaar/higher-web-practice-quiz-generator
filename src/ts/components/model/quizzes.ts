@@ -17,8 +17,7 @@ export class QuizzesModel extends Model {
 			this.emitChanges(EVENTS.QUIZZES_LOAD_SUCCESS, {quizzes})
 			return quizzes
 		} catch (error) {
-			const message = extractError(error)
-			this.emitChanges(EVENTS.QUIZZES_LOAD_FAILED, {error: message})
+			this.emitChanges(EVENTS.QUIZZES_LOAD_FAILED, {error: extractError(error)})
 			return []
 		}
 	}

@@ -1,0 +1,43 @@
+.result {
+	grid-column: 3 / span 8;
+	height: 100%;
+	align-content: center;
+}
+
+.result__title {
+	margin-bottom: var(--space-8);
+}
+
+.result__subtitle {
+	margin-bottom: var(--space-8);
+}
+
+.result__message {
+	margin-bottom: var(--space-24);
+}
+
+.result__actions {
+	display: flex;
+	gap: var(--space-8);
+	flex-wrap: wrap;
+}
+
+@media (max-width: 1024px) {
+	.result {
+		grid-column: span 8;
+	}
+}
+
+@media (max-width: 428px) {
+	.result__actions {
+		flex-direction: column;
+	}
+
+	.result {
+		grid-column: span 4;
+	}
+
+	.result__actions .button {
+		flex: 1;
+	}
+}

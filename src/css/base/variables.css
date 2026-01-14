@@ -99,6 +99,11 @@
 	--z-footer: 100;
 	--z-modal: 200;
 	--z-toast: 300;
+
+	/* Transitions */
+	--transition-duration: 0.2s;
+	--transition-timing: ease;
+	--transition-base: var(--transition-duration) var(--transition-timing);
 }
 
 @media (max-width: 1024px) {

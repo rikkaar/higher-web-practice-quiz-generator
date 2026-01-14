@@ -17,7 +17,7 @@ export function ensureAllElements<T extends HTMLElement>(
 	if (Array.isArray(selectorElement)) {
 		return selectorElement
 	}
-	throw new Error(`Unknown selector element`)
+	throw new Error('Unknown selector element')
 }
 
 export function ensureElement<T extends HTMLElement>(selectorElement: SelectorElement<T>, context?: HTMLElement): T {
