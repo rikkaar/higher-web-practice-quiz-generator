@@ -1,5 +1,6 @@
 import {cloneTemplateContent, ensureElement} from '../utils/dom'
 import {quizDatabase} from '../utils/storage'
+import {getSearchParam, setSearchParam, deleteSearchParam} from '../utils/url'
 import {HeaderView} from '../components/view'
 import {events} from '../components/base'
 import {type QuizAnswerResult, type QuizQuestion, EVENTS} from '../types'
@@ -8,14 +9,15 @@ import {QuestionView} from '../components/view/question'
 import {QuizContentView} from '../components/view/quiz-content'
 import {QuizProgressView} from '../components/view/quiz-progress'
 import {QuizSectionView} from '../components/view/quiz-section'
-import {QuizHeadView} from '../components/view/quiz-head'
+import {QuizHeaderView} from '../components/view/quiz-header'
 import {QuizSessionModel} from '../components/model/quiz-session'
 import {ResultView} from '../components/view/result'
 import {getResultData} from '../utils/getResultData'
+import {SEARCH_PARAMS} from '../constants'
 
 new HeaderView(ensureElement('.header'))
 
-const quizId = new URLSearchParams(window.location.search).get('id')
+const quizId = getSearchParam(SEARCH_PARAMS.QUIZ_ID)
 if (!quizId) {
 	window.location.href = './quizzes.html'
 	throw new Error('Quiz: quiz id is required')
@@ -24,7 +26,7 @@ if (!quizId) {
 const quizContentView = new QuizContentView(ensureElement('.quiz__content'), {events})
 const quizSectionView = new QuizSectionView(ensureElement('.quiz'))
 const quizProgressView = new QuizProgressView(ensureElement('.quiz__progress'))
-const quizHeadView = new QuizHeadView(ensureElement('.quiz__head'))
+const quizHeaderView = new QuizHeaderView(ensureElement('.quiz__header'))
 const resultView = new ResultView(ensureElement('.result'), {events})
 const quizSessionModel = new QuizSessionModel(quizDatabase, events)
 
@@ -33,7 +35,7 @@ const multipleQuestionTemplate = ensureElement<HTMLTemplateElement>('#multiple-q
 const radioOptionTemplate = ensureElement<HTMLTemplateElement>('#option-template')
 const checkboxOptionTemplate = ensureElement<HTMLTemplateElement>('#checkbox-option-template')
 
-const templateRegistry = {
+const templateRegistry: Record<QuizQuestion['type'], Record<'question' | 'option', HTMLTemplateElement>> = {
 	single: {
 		question: singleQuestionTemplate,
 		option: radioOptionTemplate,
@@ -42,7 +44,7 @@ const templateRegistry = {
 		question: multipleQuestionTemplate,
 		option: checkboxOptionTemplate,
 	},
-} satisfies Record<QuizQuestion['type'], {question: HTMLTemplateElement; option: HTMLTemplateElement}>
+}
 
 function renderQuestion(question: QuizQuestion, answer?: string[], result?: QuizAnswerResult, isLast?: boolean) {
 	const templates = templateRegistry[question.type]
@@ -84,13 +86,14 @@ events.on(EVENTS.QUIZ_LOAD_FAILED, ({error}) => {
 })
 
 events.on(EVENTS.QUIZ_SESSION_STARTED, ({title, description, total}) => {
-	quizHeadView.render({title, description})
+	quizHeaderView.render({title, description})
 	quizProgressView.render({currentIndex: 0, total})
 })
 
 events.on(EVENTS.QUIZ_SESSION_UPDATED, ({question, currentIndex, total}) => {
 	quizProgressView.render({currentIndex, total})
 	renderQuestion(question)
+	setSearchParam(SEARCH_PARAMS.QUESTION, String(currentIndex + 1))
 })
 
 events.on(EVENTS.QUIZ_ANSWER_RESULT, ({question, result, answer, isLast}) => {
@@ -101,6 +104,7 @@ events.on(EVENTS.QUIZ_SESSION_FINISHED, ({correctCount, total}) => {
 	quizSectionView.render({isVisible: false})
 	const data = getResultData(correctCount, total)
 	resultView.render({data, isOpen: true})
+	deleteSearchParam(SEARCH_PARAMS.QUESTION)
 })
 
 events.on(EVENTS.QUIZ_SUBMIT_ANSWER, ({answer}) => {
@@ -115,6 +119,7 @@ events.on(EVENTS.QUIZ_RESTART, () => {
 	quizSectionView.render({isVisible: true})
 	resultView.render({isOpen: false})
 	quizSessionModel.restart()
+	setSearchParam(SEARCH_PARAMS.QUESTION, '1')
 })
 
 void quizSessionModel.startQuizSession(quizId)

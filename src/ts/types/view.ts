@@ -91,9 +91,9 @@ export type ResultViewData = {
 
 export type ResultViewSettings = BaseViewSettings
 
-export type QuizHeadViewData = {
+export type QuizHeaderViewData = {
 	title: string
 	description: string
 }
 
-export type QuizHeadViewSettings = object
+export type QuizHeaderViewSettings = object
