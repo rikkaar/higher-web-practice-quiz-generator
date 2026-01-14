@@ -5,6 +5,7 @@
 - **Автор:** Игорь Рыболовлев
 - **Группа:** higher-front-back-dev, 1 курс
 - [**Репозиторий**](https://github.com/rikkaar/higher-web-practice-quiz-generator)
+- [**Публикация**](https://rikkaar.github.io/higher-web-practice-quiz-generator)
 
 ## Установка и запуск
 
