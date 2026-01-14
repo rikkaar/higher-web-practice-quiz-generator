@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href="./assets/logo-CsdLGdJ6.svg"
+		/>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Генератор квизов</title>
+		<script type="module" crossorigin src="./assets/main-ChCuYsHG.js"></script>
+		<link rel="modulepreload" crossorigin href="./assets/extractError-CZC-6WSn.js">
+		<link rel="stylesheet" crossorigin href="./assets/main-CUEq6Ta-.css">
+	</head>
+	<body class="layout">
+		<header class="header">
+			<div class="header__inner layout__container">
+				<img
+					class="header__logo"
+					src="./assets/logo-CsdLGdJ6.svg"
+					alt="Логотип"
+				/>
+				<nav class="header__nav">
+					<a
+						class="button button--secondary"
+						href="./quizzes.html"
+						>Посмотреть сохранённые квизы</a
+					>
+				</nav>
+				<button
+					class="header__menu-button"
+					type="button"
+				>
+					<img
+						class="header__menu-icon"
+						src="data:image/svg+xml,%3csvg%20width='44'%20height='44'%20viewBox='0%200%2044%2044'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M8%2012H36'%20stroke='%231E40FF'%20stroke-width='2'/%3e%3cpath%20d='M8%2022H36'%20stroke='%231E40FF'%20stroke-width='2'/%3e%3cpath%20d='M8%2032H36'%20stroke='%231E40FF'%20stroke-width='2'/%3e%3c/svg%3e"
+						alt="Меню"
+					/>
+				</button>
+			</div>
+			<div class="header__menu-container">
+				<nav class="header__menu-nav">
+					<a
+						class="header__menu-link"
+						href="./quizzes.html"
+						>Сохранённые квизы</a
+					>
+				</nav>
+			</div>
+		</header>
+
+		<main class="main">
+			<div class="main__inner layout__container layout__grid">
+				<section class="generator">
+					<h1 class="generator__title">Генератор квизов</h1>
+					<p class="generator__hint">Вставьте JSON...</p>
+					<form class="generator__form">
+						<label
+							class="generator__label text text--caption"
+							for="quiz-json-input"
+							>Ваш JSON</label
+						>
+						<textarea
+							id="quiz-json-input"
+							name="quiz-json-input"
+							class="generator__textarea text text--mono"
+							placeholder="{&#10;«title»: «Пример теста»,&#10;«questions»: []&#10;}"
+						></textarea>
+						<div class="generator__actions">
+							<button
+								type="submit"
+								class="button button--primary"
+							>
+								Сгенерировать
+							</button>
+						</div>
+					</form>
+				</section>
+			</div>
+		</main>
+
+		<footer class="footer">
+			<div class="footer__inner layout__container">Учебный проект 2025</div>
+		</footer>
+
+		<div
+			class="toast toast--error"
+			id="error-toast"
+			hidden
+		>
+			<div class="toast__icon">❌</div>
+			<div class="toast__content">
+				<p class="toast__title">Ошибка: не удалось обработать JSON.</p>
+				<p class="toast__message text text--caption">Проверьте формат данных и попробуйте снова.</p>
+			</div>
+			<div class="toast__actions">
+				<button
+					type="button"
+					class="button button--secondary toast__action"
+				>
+					Попробовать снова
+				</button>
+			</div>
+		</div>
+
+	</body>
+</html>
