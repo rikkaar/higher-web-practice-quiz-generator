@@ -1,0 +1,40 @@
+.quiz-card {
+	display: flex;
+	grid-column: span 4;
+	flex-direction: column;
+	transition:
+		background-color var(--transition-base),
+		border-color var(--transition-base);
+	box-shadow: var(--shadow-1);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-md);
+	background-color: var(--color-surface);
+	padding: var(--space-16);
+}
+
+.quiz-card:hover {
+	border-color: var(--color-primary);
+	background-color: var(--color-primary-light-2);
+}
+
+.quiz-card:hover .quiz-card__count {
+	color: var(--color-primary);
+}
+
+.quiz-card__title {
+	margin-bottom: var(--space-8);
+}
+
+.quiz-card__description {
+	margin-bottom: var(--space-16);
+	color: var(--color-text-secondary);
+}
+
+.quiz-card__footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: var(--space-8);
+	margin-top: auto;
+	width: 100%;
+}

@@ -1,0 +1,49 @@
+.quizzes {
+	grid-column: span 12;
+}
+
+.quizzes__title {
+	margin-bottom: var(--space-24);
+}
+
+.quizzes__empty {
+	height: 100%;
+}
+
+.quizzes__empty-content {
+	grid-column: 3 / span 8;
+	align-self: center;
+}
+
+.quizzes__empty-title {
+	margin-bottom: var(--space-8);
+}
+
+.quizzes__empty-subtitle {
+	margin-bottom: var(--space-24);
+	color: var(--color-text-secondary);
+}
+
+@media (max-width: 1024px) {
+	.quizzes {
+		grid-column: span 8;
+	}
+
+	.quizzes__empty-content {
+		grid-column: span 8;
+	}
+}
+
+@media (max-width: 428px) {
+	.quizzes {
+		grid-column: span 4;
+	}
+
+	.quizzes__empty-content {
+		grid-column: span 4;
+	}
+
+	.quizzes__empty-content .button {
+		width: 100%;
+	}
+}
