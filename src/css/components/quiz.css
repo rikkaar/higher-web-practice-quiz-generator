@@ -1,6 +1,6 @@
 .quiz {
-	grid-column: 3 / span 8;
 	display: flex;
+	grid-column: 3 / span 8;
 	flex-direction: column;
 	gap: var(--space-24);
 }
@@ -14,8 +14,8 @@
 }
 
 .quiz__progress-text {
-	color: var(--color-text-secondary);
 	margin-bottom: var(--space-4);
+	color: var(--color-text-secondary);
 }
 
 .quiz__question {

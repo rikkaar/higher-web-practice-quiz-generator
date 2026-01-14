@@ -1,15 +1,15 @@
 .main {
 	position: fixed;
 	top: var(--header-height);
+	right: 0;
 	bottom: var(--footer-height);
 	left: 0;
-	right: 0;
 	overflow: auto;
 }
 
 .main__inner {
-	height: 100%;
 	padding: var(--space-64) 0;
+	height: 100%;
 }
 
 @media (max-width: 1024px) {

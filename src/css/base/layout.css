@@ -3,8 +3,8 @@
 }
 
 .layout__container {
-	width: var(--grid-container-width);
 	margin: 0 auto;
+	width: var(--grid-container-width);
 }
 
 .layout__grid {

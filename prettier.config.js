@@ -11,6 +11,7 @@ const config = {
 	tabWidth: 2,
 	useTabs: true,
 	endOfLine: 'auto',
+	plugins: ['prettier-plugin-css-order'],
 }
 
 export default config

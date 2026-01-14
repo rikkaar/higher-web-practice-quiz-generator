@@ -1,7 +1,7 @@
 .result {
 	grid-column: 3 / span 8;
-	height: 100%;
 	align-content: center;
+	height: 100%;
 }
 
 .result__title {
@@ -18,8 +18,8 @@
 
 .result__actions {
 	display: flex;
-	gap: var(--space-8);
 	flex-wrap: wrap;
+	gap: var(--space-8);
 }
 
 @media (max-width: 1024px) {
