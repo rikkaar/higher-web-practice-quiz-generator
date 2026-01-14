@@ -17,13 +17,9 @@
 .checkbox:checked::before {
 	position: absolute;
 	mask-image: var(--icon-check);
-	-webkit-mask-image: var(--icon-check);
 	mask-position: center;
-	-webkit-mask-position: center;
 	mask-size: contain;
-	-webkit-mask-size: contain;
 	mask-repeat: no-repeat;
-	-webkit-mask-repeat: no-repeat;
 	margin: auto;
 	inset: 0;
 	background-color: var(--color-surface);
@@ -64,5 +60,4 @@
 
 .checkbox--error:checked::before {
 	mask-image: var(--icon-cross);
-	-webkit-mask-image: var(--icon-cross);
 }

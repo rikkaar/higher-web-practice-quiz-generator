@@ -42,8 +42,6 @@
 
 .radio--success:checked::before {
 	mask-image: var(--icon-check);
-	-webkit-mask-image: var(--icon-check);
-	background-color: var(--color-success);
 }
 
 .radio--error {
@@ -53,16 +51,12 @@
 
 .radio--error:checked::before {
 	mask-image: var(--icon-cross);
-	-webkit-mask-image: var(--icon-cross);
 	background-color: var(--color-error);
 }
 
 .radio--success:checked::before,
 .radio--error:checked::before {
 	mask-position: center;
-	-webkit-mask-position: center;
 	mask-size: contain;
-	-webkit-mask-size: contain;
 	mask-repeat: no-repeat;
-	-webkit-mask-repeat: no-repeat;
 }
